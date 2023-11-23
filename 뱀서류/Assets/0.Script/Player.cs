@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 3f + (GameDataMng.Instance.userSpeed/10);
-        HP = MaxHP = 100 + GameDataMng.Instance.userHp;
+        Speed = 3f;// + (GameDataMng.Instance.userSpeed/10);
+        HP = MaxHP = 100; //+ GameDataMng.Instance.userHp;
         //shieldSpeed = 10;
         //BulletFireDelayTime = 2f;
     }
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
     }
     public void Hit(int damage)
     {
-        HP -= (damage - (GameDataMng.Instance.userDef/100));
+        HP -= (damage /*- (GameDataMng.Instance.userDef/100)*/);
         UI.instance.SetHP(HP, MaxHP);
     }
     void OnTriggerEnter2D(Collider2D collision)
