@@ -50,9 +50,7 @@ public class MonsterSpawnController : MonoBehaviour
     }
     Vector2 RandomPosition(int index)
     {
-
         RectTransform pos = boxColls[index].GetComponent<RectTransform>();
-
         Vector3 randPos = Vector3.zero;
         // Top = 0 , Bottom = 1
         if (index == 0 || index == 1)
@@ -64,7 +62,6 @@ public class MonsterSpawnController : MonoBehaviour
         {
             randPos = new Vector2(pos.position.x, pos.position.y + Random.Range(-range, range));
         }
-
         return randPos;
     }
     public void StartSpawn(bool start)
