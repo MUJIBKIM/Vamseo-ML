@@ -7,7 +7,7 @@ using Unity.MLAgents.Actuators;
 
 public class PlayerAgent_Move : Agent
 {
-    [SerializeField] Rigidbody rb;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform target;
 
     public override void OnEpisodeBegin()
@@ -20,7 +20,7 @@ public class PlayerAgent_Move : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         Vector3 velocity = new Vector3(actions.ContinuousActions[0], 0, actions.ContinuousActions[1]);
-        rb.AddForce(velocity, ForceMode.VelocityChange);
+        rb.AddForce(velocity, ForceMode2D.Impulse);
 
         SetReward(-1 / MaxStep);
     }
