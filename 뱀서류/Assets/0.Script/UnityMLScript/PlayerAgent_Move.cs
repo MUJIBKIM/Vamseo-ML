@@ -5,43 +5,32 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class PlayerAgent : Agent
+public class PlayerAgent_Move : Agent
 {
-    [SerializeField] private RayPerceptionSensorComponent3D raySensor;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] Transform target;
+
     public override void OnEpisodeBegin()
     {
-        // 초기 에피소드 설정
         transform.localPosition = new Vector3(0, 1, 0);
+        target.localPosition = new Vector3(Random.Range(-6, 6), 1, Random.Range(-6, 6));
+
+        rb.velocity = Vector3.zero;
     }
-
-    public override void CollectObservations(VectorSensor sensor)
-    {
-
-    }
-
     public override void OnActionReceived(ActionBuffers actions)
     {
-        // 에이전트의 움직임 제어
-        Vector3 movement = new Vector3(actions.ContinuousActions[0], 0, actions.ContinuousActions[1]);
-        // 시간에 따른 리워드 감소
-        SetReward(+1 / MaxStep);
+        Vector3 velocity = new Vector3(actions.ContinuousActions[0], 0, actions.ContinuousActions[1]);
+        rb.AddForce(velocity, ForceMode.VelocityChange);
+
+        SetReward(-1 / MaxStep);
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        // 몬스터와의 충돌 감지
         if (other.gameObject.CompareTag("Monster"))
         {
-            SetReward(-1f); // 몬스터와 충돌 시 페널티
+            SetReward(+1);
             EndEpisode();
         }
-    }
-
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        // 수동 테스트용 휴리스틱 함수
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-        continuousActionsOut[1] = Input.GetAxis("Vertical");
     }
 }

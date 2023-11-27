@@ -22661,8 +22661,9 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  raySensor: {fileID: 0}
+  MaxStep: 1000
+  rb: {fileID: 0}
+  target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
 --- !u!114 &1853127472
 MonoBehaviour:
   m_ObjectHideFlags: 0
