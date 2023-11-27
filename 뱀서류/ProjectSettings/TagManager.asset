@@ -11,6 +11,7 @@ TagManager:
   - waterPoint
   - farmPoint
   - PlayerBullet
+  - Wall
   layers:
   - Default
   - TransparentFX

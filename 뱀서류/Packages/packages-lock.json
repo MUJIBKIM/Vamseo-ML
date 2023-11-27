@@ -103,6 +103,17 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.barracuda": {
+      "version": "3.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.6.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.burst": {
       "version": "1.8.7",
       "depth": 2,
@@ -184,33 +195,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents": {
-      "version": "file:C:/Users/MJ/Downloads/ml-agents-latest_release/ml-agents-latest_release/com.unity.ml-agents",
+      "version": "2.0.1",
       "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.sentis": "1.2.0-exp.2",
-        "com.unity.modules.imageconversion": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.physics": "1.0.0"
-      }
-    },
-    "com.unity.ml-agents.extensions": {
-      "version": "file:C:/Users/MJ/Downloads/ml-agents-latest_release/ml-agents-latest_release/com.unity.ml-agents.extensions",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.ml-agents": "3.0.0-exp.1",
-        "com.unity.modules.physics": "1.0.0"
-      }
-    },
-    "com.unity.sentis": {
-      "version": "1.2.0-exp.2",
-      "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.burst": "1.8.4",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.imageconversion": "1.0.0"
+        "com.unity.barracuda": "2.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
