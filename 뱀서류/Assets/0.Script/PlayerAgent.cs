@@ -13,12 +13,13 @@ public class PlayerAgent : Agent
     {
         transform.position = Vector3.zero;
         target.position = new Vector3(Random.Range(-15, 15), Random.Range(-15, 15), 0);
-        Debug.Log("begin");
+        Debug.Log("응안돼ㅋㅋ");
     }
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.position);
         sensor.AddObservation(target.position);
+        Debug.Log("응꺼져ㅋㅋ");
     }
 
     [SerializeField] float speed = 1f;
@@ -36,6 +37,7 @@ public class PlayerAgent : Agent
             SetReward(+10.0f);
             EndEpisode();
         }
+        Debug.Log("응싫어ㅋㅋ");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

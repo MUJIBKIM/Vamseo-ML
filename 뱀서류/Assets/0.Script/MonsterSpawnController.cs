@@ -35,7 +35,7 @@ public class MonsterSpawnController : MonoBehaviour
             float spawnProbability = Random.Range(0f, 1f);
             Monster spawnedMonster;
 
-            /*
+            
             if (spawnProbability <= 0.05f) // n% 확률로 원거리 몹 생성
             {
                 spawnedMonster = Instantiate(rangedMonster, v, Quaternion.identity);
@@ -47,7 +47,7 @@ public class MonsterSpawnController : MonoBehaviour
 
             spawnedMonster.SetPlayer(p);
             spawnedMonster.transform.SetParent(parent);
-            */
+            
         }
     }
     Vector2 RandomPosition(int index)

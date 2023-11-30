@@ -12,7 +12,7 @@ public class Firearm : MonoBehaviour
     [SerializeField] private SpriteRenderer weaponSprite;
     [SerializeField] public UnityEngine.UI.Image reloadUi;
     [SerializeField] private Transform front1Transform;
-    public float reloadTime = 2f - (GameDataMng.Instance.userReloadspeed/100); // 이후 레벨업 등 스펙업 요소 구현 시 어떻게??
+    public float reloadTime = 2f;//- (GameDataMng.Instance.userReloadspeed/100); // 이후 레벨업 등 스펙업 요소 구현 시 어떻게??
     public GameObject bulletPrefab;
     public Text ammoText;
     public int maxAmmo = 10;

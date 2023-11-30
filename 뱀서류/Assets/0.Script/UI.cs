@@ -7,12 +7,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public enum GameState
-{
-    Play,
-    Pause,
-    Stop
-}
+public enum GameState { Play, Pause, Stop }
 [System.Serializable]
 public class UpgradeUI
 {
