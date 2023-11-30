@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7707465373956112280}
   - component: {fileID: 2977672259207191802}
   - component: {fileID: 7478593661898602440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedZombie1
   m_TagString: Monster
   m_Icon: {fileID: 0}
