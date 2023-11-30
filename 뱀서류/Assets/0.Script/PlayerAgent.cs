@@ -33,14 +33,14 @@ public class PlayerAgent : Agent
     Vector3 nextMove;
     public override void OnActionReceived(ActionBuffers actions)
     {
-        /*
+        
         nextMove.x = actions.ContinuousActions[0];
         nextMove.y = actions.ContinuousActions[1];
         transform.Translate(nextMove * Time.deltaTime * speed);
-        */
+        /*
         Vector3 velocity = new Vector3(actions.ContinuousActions[0], actions.ContinuousActions[1], 0);
         rb.AddForce(velocity, ForceMode2D.Impulse);
-
+        */
         SetReward(1 / MaxStep);
         if ( ts.Seconds >= 3.0f)
         {
