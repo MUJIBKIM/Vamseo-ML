@@ -13337,11 +13337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 281006712}
   sr: {fileID: 703502831}
---- !u!4 &703502833 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-  m_PrefabInstance: {fileID: 73101028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &708852129
 GameObject:
   m_ObjectHideFlags: 0
@@ -45285,8 +45280,6 @@ GameObject:
   - component: {fileID: 1853127461}
   - component: {fileID: 1853127466}
   - component: {fileID: 1853127467}
-  - component: {fileID: 1853127471}
-  - component: {fileID: 1853127470}
   m_Layer: 8
   m_Name: '[[Player]]'
   m_TagString: Player
@@ -45484,56 +45477,6 @@ MonoBehaviour:
   ghostDelay: 0
   ghostPrefab: {fileID: 6017616467913811818, guid: e7bd352726e736049b83f4580f5aecc1, type: 3}
   makeGhost: 0
---- !u!114 &1853127470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853127460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b57d81ff6dcff8946b840a163695717a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  target: {fileID: 703502833}
-  rb: {fileID: 0}
-  speed: 1
---- !u!114 &1853127471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853127460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BrainParameters:
-    VectorObservationSize: 1
-    NumStackedVectorObservations: 1
-    m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
-    VectorActionDescriptions: []
-    VectorActionSpaceType: 0
-    hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: My Behavior
-  TeamId: 0
-  m_UseChildSensors: 1
-  m_UseChildActuators: 1
-  m_DeterministicInference: 0
-  m_ObservableAttributeHandling: 0
 --- !u!1 &1934299242
 GameObject:
   m_ObjectHideFlags: 0
