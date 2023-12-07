@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterAgent : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] public PlayerAgent player;
     [SerializeField] private SpriteRenderer sr;
     void Update()
     {

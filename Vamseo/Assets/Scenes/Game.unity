@@ -685,87 +685,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &73101028
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6737032308732431544, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_Name
-      value: Zombie1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032308732431544, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032308732431544, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488003, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_Size.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488003, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_Size.y
-      value: 1.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488007, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6737032309165488007, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6737032308732431544, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 703502832}
-  m_SourcePrefab: {fileID: 100100000, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
 --- !u!1 &73146036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,7 +5106,7 @@ GameObject:
   - component: {fileID: 281006719}
   - component: {fileID: 281006718}
   - component: {fileID: 281006720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5209,7 +5128,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 100
+  MaxStep: 500000
   target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
   rb: {fileID: 281006719}
   speed: 1
@@ -5226,7 +5145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 6
+    VectorObservationSize: 50
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -7075,30 +6994,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676412593}
   m_CullTransparentMesh: 1
---- !u!1 &703502827 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6737032308732431544, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-  m_PrefabInstance: {fileID: 73101028}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &703502831 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6737032309165488001, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
-  m_PrefabInstance: {fileID: 73101028}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &703502832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703502827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37055bf1ced41ef4e95769a065bf133a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 281006712}
-  sr: {fileID: 703502831}
 --- !u!1 &708852129
 GameObject:
   m_ObjectHideFlags: 0
@@ -11958,6 +11853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1853127463}
+  playeragent: {fileID: 281006719}
   monster: {fileID: 6737032309165488007, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
   parent: {fileID: 1994610731}
   boxColls:
@@ -23336,7 +23232,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853127460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e48d547fe72b808449f919649125f7cb, type: 3}
   m_Name: 
@@ -24142,4 +24038,3 @@ SceneRoots:
   - {fileID: 511261927}
   - {fileID: 1994610731}
   - {fileID: 281006717}
-  - {fileID: 73101028}

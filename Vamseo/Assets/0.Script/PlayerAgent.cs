@@ -34,20 +34,29 @@ public class PlayerAgent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         
-        nextMove.x = actions.ContinuousActions[0];
-        nextMove.y = actions.ContinuousActions[1];
+        nextMove.x = actions.ContinuousActions[0]*3;
+        nextMove.y = actions.ContinuousActions[1]*3;
         transform.Translate(nextMove * Time.deltaTime * speed);
         /*
-        Vector3 velocity = new Vector3(actions.ContinuousActions[0], actions.ContinuousActions[1], 0);
+        Vector3 velocity = new Vector3(actions.ContinuousActions[0]/100, actions.ContinuousActions[1]/100, 0);
         rb.AddForce(velocity, ForceMode2D.Impulse);
         */
         SetReward(1 / MaxStep);
-        if ( ts.Seconds >= 3.0f)
+        if ( ts.Seconds >= 100.0f)
         {
             SetReward(+10.0f);
-            //Debug.Log("응싫어ㅋㅋ");
             EndEpisode();
+            Destroymonster();
             Debug.Log("응싫어ㅋㅋ");
+        }
+    }
+
+    public void Destroymonster()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
         }
     }
 
@@ -56,14 +65,16 @@ public class PlayerAgent : Agent
         if (other.gameObject.CompareTag("Monster"))
         {
             Debug.Log("impact monster");
-            SetReward(-5.0f);
+            SetReward(-1.0f);
             EndEpisode();
+            Destroymonster();
         }
         else if(other.gameObject.CompareTag("Wall"))
         {
             Debug.Log("impact wall");
             SetReward(-1.0f);
             EndEpisode();
+            Destroymonster();
         }
     }
 }

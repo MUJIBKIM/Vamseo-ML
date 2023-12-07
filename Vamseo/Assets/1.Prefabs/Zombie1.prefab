@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 0}
+  playeragent: {fileID: 0}
   sr: {fileID: 6737032309165488001}
   animator: {fileID: 6737032309165488062}
   expPrefab: {fileID: 6076866821248347982, guid: 4f255c02d36d27b41894741d74802d3b, type: 3}

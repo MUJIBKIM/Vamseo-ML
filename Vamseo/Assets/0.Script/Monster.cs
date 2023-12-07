@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     [SerializeField] public Player p;
+    [SerializeField] public Rigidbody2D playeragent;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] protected Animator animator;
     [SerializeField] protected GameObject expPrefab;
@@ -33,14 +34,16 @@ public class Monster : MonoBehaviour
             hitFreezeTimer -= Time.deltaTime;
             return;
         }
-        
-        float x = p.transform.position.x - transform.position.x;
+
+        //float x = p.transform.position.x - transform.position.x;
+        float x = playeragent.transform.position.x - transform.position.x;
 
         sr.flipX = x < 0 ? true : x == 0 ? true : false;
 
-        float distance = Vector2.Distance(p.transform.position, transform.position);
+        //float distance = Vector2.Distance(p.transform.position, transform.position);
+        float distance = Vector2.Distance(playeragent.transform.position, transform.position);
 
-        if (distance <= 1) //
+        if (distance <= 0.1) // 1에서 0.1로 수정함
         {
             atkTimer += Time.deltaTime;
             //공격
@@ -53,9 +56,9 @@ public class Monster : MonoBehaviour
         else
         {
             //이동
-            if (hp > 0)
+            if (true) // hp>0에서 true로 수정함
             {
-                Vector2 v1 = (p.transform.position - transform.position).normalized * Time.deltaTime * 1f;
+                Vector2 v1 = (playeragent.transform.position - transform.position).normalized * Time.deltaTime * 1f;
                 transform.Translate(v1);
             }
         }
@@ -63,6 +66,11 @@ public class Monster : MonoBehaviour
     public virtual void SetPlayer(Player p)
     {
         this.p = p;
+    }
+
+    public virtual void SetPlayer(Rigidbody2D p)
+    {
+        this.playeragent = p;
     }
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {

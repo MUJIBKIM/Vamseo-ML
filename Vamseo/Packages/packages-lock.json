@@ -195,15 +195,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.ml-agents.extensions": {
-      "version": "file:C:/Users/kann1/Downloads/ml-agents-release_20/ml-agents-release_20/com.unity.ml-agents.extensions",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.ml-agents": "3.0.0-exp.1",
-        "com.unity.modules.physics": "1.0.0"
-      }
-    },
     "com.unity.sentis": {
       "version": "1.2.0-exp.2",
       "depth": 1,

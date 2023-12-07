@@ -6,6 +6,7 @@ using UnityEngine;
 public class MonsterSpawnController : MonoBehaviour
 {
     [SerializeField] private Player p;
+    [SerializeField] public Rigidbody2D playeragent;
     [SerializeField] private Monster monster;
     [SerializeField] private Transform parent;
     [SerializeField] private BoxCollider2D[] boxColls;
@@ -15,7 +16,7 @@ public class MonsterSpawnController : MonoBehaviour
     int range = 10;
     void Awake()
     {
-        createMonster = CreateMonster(100f);
+        createMonster = CreateMonster(3f);
         StartCoroutine(createMonster);
     }
     void Update()
@@ -45,7 +46,8 @@ public class MonsterSpawnController : MonoBehaviour
                 spawnedMonster = Instantiate(monster, v, Quaternion.identity);
             }
 
-            spawnedMonster.SetPlayer(p);
+            //spawnedMonster.SetPlayer(p);
+            spawnedMonster.SetPlayer(playeragent);
             spawnedMonster.transform.SetParent(parent);
             
         }
