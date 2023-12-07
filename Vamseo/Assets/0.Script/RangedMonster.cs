@@ -42,7 +42,7 @@ public class RangedMonster : Monster
         base.SetPlayer(p);
     }
 
-    public override void SetPlayer(Rigidbody2D p)
+    public override void SetPlayer(PlayerAgent p)
     {
         base.SetPlayer(p);
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class MonsterSpawnController : MonoBehaviour
 {
     [SerializeField] private Player p;
-    [SerializeField] public Rigidbody2D playeragent;
+    [SerializeField] public PlayerAgent playeragent;
     [SerializeField] private Monster monster;
     [SerializeField] private Transform parent;
     [SerializeField] private BoxCollider2D[] boxColls;

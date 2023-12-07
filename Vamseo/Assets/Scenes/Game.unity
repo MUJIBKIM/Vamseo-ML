@@ -5192,7 +5192,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -11853,7 +11853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1853127463}
-  playeragent: {fileID: 281006719}
+  playeragent: {fileID: 281006713}
   monster: {fileID: 6737032309165488007, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
   parent: {fileID: 1994610731}
   boxColls:

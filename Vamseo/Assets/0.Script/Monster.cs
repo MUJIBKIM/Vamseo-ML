@@ -5,7 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     [SerializeField] public Player p;
-    [SerializeField] public Rigidbody2D playeragent;
+    [SerializeField] public PlayerAgent playeragent;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] protected Animator animator;
     [SerializeField] protected GameObject expPrefab;
@@ -27,8 +27,9 @@ public class Monster : MonoBehaviour
     {
         if (UI.instance.gameState != GameState.Play)
             return;
+        /*
         if (p == null || hp < 0)
-            return;
+            return;*/
         if(hitFreezeTimer > 0)
         {
             hitFreezeTimer -= Time.deltaTime;
@@ -42,7 +43,9 @@ public class Monster : MonoBehaviour
 
         //float distance = Vector2.Distance(p.transform.position, transform.position);
         float distance = Vector2.Distance(playeragent.transform.position, transform.position);
-
+        Vector2 v1 = (playeragent.transform.position - transform.position).normalized * Time.deltaTime * 1f;
+        transform.Translate(v1);
+        /*
         if (distance <= 0.1) // 1에서 0.1로 수정함
         {
             atkTimer += Time.deltaTime;
@@ -61,14 +64,14 @@ public class Monster : MonoBehaviour
                 Vector2 v1 = (playeragent.transform.position - transform.position).normalized * Time.deltaTime * 1f;
                 transform.Translate(v1);
             }
-        }
+        }*/
     }
     public virtual void SetPlayer(Player p)
     {
         this.p = p;
     }
 
-    public virtual void SetPlayer(Rigidbody2D p)
+    public virtual void SetPlayer(PlayerAgent p)
     {
         this.playeragent = p;
     }
