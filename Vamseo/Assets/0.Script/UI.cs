@@ -134,11 +134,12 @@ public class UI : MonoBehaviour
 
         timer += Time.deltaTime;
         System.TimeSpan ts = System.TimeSpan.FromSeconds(timer);
-        if (timer == 5.0f)
+        /*if (timer == 5.0f)
             Debug.Log("5초!");
         if (ts.Seconds == 5)
-            Debug.Log("5!");
-        txtTime.text = string.Format("{0:0000}:{1:00}", ts.Minutes, ts.Seconds);
+            Debug.Log("5!");*/
+        int totalMinutes = (int)ts.TotalMinutes;
+        txtTime.text = string.Format("{0:0000}:{1:00}", totalMinutes, ts.Seconds);
     }
     public void SetHP(int HP, int maxHP)
     {
