@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public int HitMaxCount { get; set; }
     public int damage;
     public float speed = 20f;
+    public PlayerAgent agent;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,23 @@ public class Bullet : MonoBehaviour
     public void SetHitMaxCount(int count)
     {
         HitMaxCount = count;
+    }
+    public virtual void SetPlayer(PlayerAgent p)
+    {
+        this.agent = p;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Monster"))
+        {
+            Destroy(other.gameObject);
+            agent.hitcheck = 1;
+        }
+        else if (other.gameObject.CompareTag("Wall"))
+        {
+
+            Destroy(this.gameObject);
+        }
     }
 }

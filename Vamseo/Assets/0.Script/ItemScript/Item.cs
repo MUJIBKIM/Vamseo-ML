@@ -31,7 +31,7 @@ void Start()
             return;
         if (isPickup)
         {
-            Vector2 v1 = (coinDetectorTarget.transform.position - transform.position).normalized * Time.deltaTime * 7f; //¾ÆÀÌÅÛÀÌ ÇÃ·¹ÀÌ¾î µû¶ó°¡´Â ¼Óµµ
+            Vector2 v1 = (coinDetectorTarget.transform.position - transform.position).normalized * Time.deltaTime * 7f; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ó°¡´ï¿½ ï¿½Óµï¿½
             transform.Translate(v1);
             if (Vector3.Distance(transform.position, coinDetectorTarget.transform.position) < 1f ) 
             {
