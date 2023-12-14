@@ -6,6 +6,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using System;
 using System.Threading;
+using UnityEngine.UIElements;
 
 public class PlayerAgent : Agent
 {
@@ -53,19 +54,24 @@ public class PlayerAgent : Agent
 
     [SerializeField] float speed = 1f;
     Vector3 nextMove;
-    Vector3 nextShot;
+    float nextShot;
+    Rotate nextrot;
     public override void OnActionReceived(ActionBuffers actions)
     {
         
         nextMove.x = actions.ContinuousActions[0]*3;
         nextMove.y = actions.ContinuousActions[1]*3;
+        /*
         nextShot.x = (actions.ContinuousActions[2]+this.transform.position.x);
-        nextShot.y = (actions.ContinuousActions[3]+this.transform.position.y);
+        nextShot.y = (actions.ContinuousActions[3]+this.transform.position.y);*/
+        //nextShot.z = actions.ContinuousActions[2];
+        nextShot = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f) * 180f; // -1과 1 사이의 값을 -180과 180 사이의 각도로 변환
+        
         transform.Translate(nextMove * Time.deltaTime * speed);
         
         if(bullettimer > 2f)
         {
-            CreateBullet(nextShot);
+            CreateBullet();
             bullettimer = 0;
         }
         
@@ -92,11 +98,11 @@ public class PlayerAgent : Agent
         }
     }
 
-    public void CreateBullet(Vector3 vec)
+    public void CreateBullet()
     {
         
         Bullet spawndbullet;
-        spawndbullet = Instantiate(bullet, vec, transform.rotation * Quaternion.Euler(0, 0, -90f));
+        spawndbullet = Instantiate(bullet, this.transform.position, (transform.rotation * Quaternion.Euler(0, 0, nextShot)));
         spawndbullet.SetPlayer(this);
         spawndbullet.transform.SetParent(parent);
     }
