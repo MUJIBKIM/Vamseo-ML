@@ -13,11 +13,13 @@ public class PlayerAgent : Agent
     [SerializeField] Transform target;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private Transform parent;
+    //RayPerceptionOutput.RayOutput rayOutput; 안댐 ㅅㅂ
     public Bullet bullet;
     private float timer = 0;
     public int hitcheck = 0;
     public int wallcheck = 0;
     private float bullettimer = 0;
+
     System.TimeSpan ts;
     public override void OnEpisodeBegin()
     {
@@ -68,8 +70,9 @@ public class PlayerAgent : Agent
         nextShot = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f) * 180f; // -1과 1 사이의 값을 -180과 180 사이의 각도로 변환
         
         transform.Translate(nextMove * Time.deltaTime * speed);
-        
-        if(bullettimer > 2f)
+
+
+        if (bullettimer > 2f) // && rayOutput.HitGameObject.CompareTag("Monster")) 얘도 안댐 ㅅㅂ 눌레퍼런스뜸 ㅜㅜ
         {
             CreateBullet();
             bullettimer = 0;
