@@ -39,7 +39,7 @@ public class PlayerAgent : Agent
         }
         if(wallcheck == 1)
         {
-            SetReward(-1.0f);
+            SetReward(-0.1f);
             wallcheck = 0;
             Debug.Log("벽맞음");
         }

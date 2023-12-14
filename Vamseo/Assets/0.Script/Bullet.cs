@@ -42,8 +42,8 @@ public class Bullet : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
-
             Destroy(this.gameObject);
+            agent.wallcheck = 1;
         }
     }
 }
