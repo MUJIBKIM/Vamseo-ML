@@ -5132,7 +5132,6 @@ MonoBehaviour:
   target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
   rb: {fileID: 281006719}
   parent: {fileID: 952368861}
-  sensor: {fileID: 281006720}
   bullet: {fileID: 1973865334552951236, guid: bc8e159ab0e640d4abd34a5afed0b28e, type: 3}
   hitcheck: 0
   wallcheck: 0
