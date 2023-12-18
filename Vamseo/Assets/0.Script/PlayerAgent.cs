@@ -171,7 +171,7 @@ public class PlayerAgent : Agent
                     dispStr = dispStr + "GameObject name: " + goHit.name + "\r\n";
                     dispStr = dispStr + "GameObject tag: " + goHit.tag + "\r\n";
                     dispStr = dispStr + "Hit distance of Ray: " + rayHitDistance + "\r\n";
-                    Debug.Log(dispStr);
+                    //Debug.Log(dispStr);
                 }
             }
             return rayOutputs[minnum].HitGameObject;
