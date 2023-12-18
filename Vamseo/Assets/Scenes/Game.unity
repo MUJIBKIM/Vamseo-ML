@@ -5132,9 +5132,11 @@ MonoBehaviour:
   target: {fileID: 6737032309165488063, guid: bd1eb53519057e24fbc8fc4aa9ba030c, type: 3}
   rb: {fileID: 281006719}
   parent: {fileID: 952368861}
+  m_rayPerceptionSensorComponent2D: {fileID: 281006720}
   bullet: {fileID: 1973865334552951236, guid: bc8e159ab0e640d4abd34a5afed0b28e, type: 3}
   hitcheck: 0
   wallcheck: 0
+  player: {fileID: 1853127463}
   speed: 1
 --- !u!114 &281006714
 MonoBehaviour:
@@ -5330,7 +5332,7 @@ MonoBehaviour:
   m_RaysPerDirection: 50
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.1
-  m_RayLength: 5
+  m_RayLength: 10
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 192

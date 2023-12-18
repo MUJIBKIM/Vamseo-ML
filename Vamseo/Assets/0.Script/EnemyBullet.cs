@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     public int HitCount { get; set; }
     public int HitMaxCount { get; set; }
@@ -31,19 +31,5 @@ public class Bullet : MonoBehaviour
     public virtual void SetPlayer(PlayerAgent p)
     {
         this.agent = p;
-    }
-
-    protected void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Monster"))
-        {
-            Destroy(other.gameObject);
-            agent.hitcheck = 1;
-        }
-        else if (other.gameObject.CompareTag("Wall"))
-        {
-            Destroy(this.gameObject);
-            agent.wallcheck = 1;
-        }
     }
 }

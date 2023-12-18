@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 0}
+  playeragent: {fileID: 0}
   sr: {fileID: 6130399561642237410}
   animator: {fileID: 7478593661898602440}
   expPrefab: {fileID: 6076866821248347982, guid: 4f255c02d36d27b41894741d74802d3b, type: 3}
@@ -169,7 +170,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.35, y: 0.75}
+  m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!95 &7478593661898602440
 Animator:
