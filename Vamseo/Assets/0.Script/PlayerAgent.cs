@@ -38,20 +38,20 @@ public class PlayerAgent : Agent
 
         if(hitcheck == 1)
         {
-            AddReward(+3.0f);
+            AddReward(+10.0f);
             hitcheck = 0;
-            Debug.Log("총알맞음");
+            Debug.Log("몬스터맞춤");
         }
         if(wallcheck == 1)
         {
-            AddReward(-0.1f);
+            AddReward(-1f);
             wallcheck = 0;
-            Debug.Log("벽맞음");
+            Debug.Log("벽맞춤");
         }
-        if (insideTimer >= 10)
+        if (insideTimer >= 5)
         {
             AddReward(+3f);
-            Debug.Log("10초생존3점추가");
+            Debug.Log("5초생존3점추가");
             insideTimer = 0;
         }
     }
@@ -129,9 +129,9 @@ public class PlayerAgent : Agent
         else if(other.gameObject.CompareTag("Wall"))
         {
             Debug.Log("impact wall");
-            AddReward(-1.0f);
+            AddReward(-5.0f);
             EndEpisode();
-            Debug.Log("초기화");
+            Debug.Log("벽에부딫혀초기화");
             Destroymonsters(); //벽의 경우, 바로 초기화 안할 시 에이전트가 뚫고 지나갈 가능성이 있으므로 닿을 시 무조건 초기화 유지
         }
     }
