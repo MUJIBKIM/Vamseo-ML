@@ -48,12 +48,12 @@ public class PlayerAgent : Agent
             wallcheck = 0;
             Debug.Log("벽맞춤");
         }
-        if (insideTimer >= 5)
+        /*if (insideTimer >= 5)
         {
             AddReward(+3f);
             Debug.Log("5초생존3점추가");
             insideTimer = 0;
-        }
+        }*/
     }
     
     public override void CollectObservations(VectorSensor sensor)
