@@ -16,7 +16,6 @@ public class PlayerAgent : Agent
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private Transform parent;
     [SerializeField] RayPerceptionSensorComponent2D m_rayPerceptionSensorComponent2D;
-    //RayPerceptionOutput.RayOutput rayOutput; 안댐 ㅅㅂ
     public Bullet bullet;
     public int hitcheck = 0;
     public int wallcheck = 0;
@@ -62,7 +61,7 @@ public class PlayerAgent : Agent
         sensor.AddObservation(target.position);
     }
 
-    [SerializeField] float speed = 1f;
+    [SerializeField] float speed = 1.2f;
     Vector3 nextMove;
     float nextShot;
     Rotate nextrot;
@@ -78,12 +77,13 @@ public class PlayerAgent : Agent
         nextShot = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f) * 180f; // -1과 1 사이의 값을 -180과 180 사이의 각도로 변환
         transform.Translate(nextMove * Time.deltaTime * speed);
 
-        if (bullettimer > 2f ) // && rayOutput.HitGameObject.CompareTag("Monster")) 얘도 안댐 ㅅㅂ 눌레퍼런스뜸 ㅜㅜ
+        if (bullettimer > 1.5f ) // && rayOutput.HitGameObject.CompareTag("Monster"))눌레퍼런스뜸 ㅜㅜ
         {
             GameObject detectedMonster = RayCastInfo(m_rayPerceptionSensorComponent2D);
-            if (detectedMonster)
+            if (detectedMonster != null)
             {
-                CreateBullet();
+                Vector2 targetDirection = detectedMonster.transform.position - transform.position;
+                CreateBullet(targetDirection.normalized);
                 bullettimer = 0;
             }
         }
@@ -103,14 +103,13 @@ public class PlayerAgent : Agent
         }
     }
 
-    public void CreateBullet()
+    public void CreateBullet(Vector2 direction)
     {
-        Bullet spawndbullet;
-        spawndbullet = Instantiate(bullet, this.transform.position, (transform.rotation * Quaternion.Euler(0, 0, nextShot)));
-        spawndbullet.SetPlayer(this);
-        spawndbullet.transform.SetParent(parent);
+        Bullet spawnedBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
+        spawnedBullet.Initialize(direction); 
+        spawnedBullet.SetPlayer(this); 
+        spawnedBullet.transform.SetParent(parent);
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Monster")) 

@@ -5295,7 +5295,7 @@ MonoBehaviour:
   hitcheck: 0
   wallcheck: 0
   player: {fileID: 1853127463}
-  speed: 1
+  speed: 1.2
 --- !u!114 &281006714
 MonoBehaviour:
   m_ObjectHideFlags: 0

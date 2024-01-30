@@ -7,13 +7,13 @@ public class Bullet : MonoBehaviour
     public int HitCount { get; set; }
     public int HitMaxCount { get; set; }
     public int damage;
-    public float speed = 20f;
+    public float speed = 5f;
     public PlayerAgent agent;
     // Start is called before the first frame update
     void Start()
     {
         HitCount = 0;
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame
@@ -31,6 +31,10 @@ public class Bullet : MonoBehaviour
     public virtual void SetPlayer(PlayerAgent p)
     {
         this.agent = p;
+    }
+    public void Initialize(Vector2 direction)
+    {
+        transform.up = direction;
     }
 
     protected void OnTriggerEnter2D(Collider2D other)

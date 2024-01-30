@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  speed: 20
+  speed: 8
+  agent: {fileID: 0}
 --- !u!212 &2471339503847567109
 SpriteRenderer:
   m_ObjectHideFlags: 0
