@@ -15,12 +15,12 @@ public class PlayerAgent : Agent
     [SerializeField] Transform target;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private Transform parent;
-    [SerializeField] RayPerceptionSensorComponent2D m_rayPerceptionSensorComponent2D;
+    [SerializeField] RayPerceptionSensorComponent2D m_rayPerceptionSensorComponent2D; //agent가 몬스터 탐지하는 컴포넌트
     public Bullet bullet;
     public int hitcheck = 0;
     public int wallcheck = 0;
     private float bullettimer = 0;
-    private float insideTimer = 0; //생존시간마다 보상점수 주기용 카운트
+    private float insideTimer = 0; //현재 미사용
     public Player player;
     public override void OnEpisodeBegin()
     {
@@ -35,7 +35,7 @@ public class PlayerAgent : Agent
         bullettimer += Time.deltaTime;
         insideTimer += Time.deltaTime;
 
-        if(hitcheck == 1)
+        if(hitcheck == 1) //bullet 스크립트에서 hitcheck 부여
         {
             AddReward(+10.0f);
             hitcheck = 0;
@@ -63,11 +63,8 @@ public class PlayerAgent : Agent
 
     [SerializeField] float speed = 1.2f;
     Vector3 nextMove;
-    float nextShot;
-    Rotate nextrot;
     public override void OnActionReceived(ActionBuffers actions)
     {
-        
         nextMove.x = actions.ContinuousActions[0]*3;
         nextMove.y = actions.ContinuousActions[1]*3;
         transform.Translate(nextMove * Time.deltaTime * speed);
@@ -100,14 +97,15 @@ public class PlayerAgent : Agent
         spawnedBullet.SetPlayer(this); 
         spawnedBullet.transform.SetParent(parent);
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Monster")) 
         {
             Debug.Log("impact monster");
-            player.Hit(110);
+            player.Hit(110);           //agent가 닿아도 감점만 되니 적극적인 회피를 하지않으므로 기존과 같이 몬스터와 닿을시 즉사판정으로 변경
             AddReward(-1.0f);
-            Destroy(other.gameObject); //여기까지는 에이전트가 죽지않았을 때, 피 일부와 보상점수 일부 차감
+            Destroy(other.gameObject); 
             if(player.HP <= 0f)
             {
                 EndEpisode();
@@ -124,6 +122,7 @@ public class PlayerAgent : Agent
             Destroymonsters(); //벽의 경우, 바로 초기화 안할 시 에이전트가 뚫고 지나갈 가능성이 있으므로 닿을 시 무조건 초기화 유지
         }
     }
+
     private GameObject RayCastInfo(RayPerceptionSensorComponent2D rayComponent)
     {
         var rayOutputs = RayPerceptionSensor.Perceive(rayComponent.GetRayPerceptionInput(), false)
